@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="body center">
+    <h1 class="task">Задание 1. Скрытие и показ текста</h1>
+    <p class="subtitle">Задание 2. Изменение стиля элемента</p>
+    <h2 class="heading">Задание 3. Динамическое изменение текста</h2>
+    <button class="btn">Скрыть текст / Показать текст</button>
+    <button class="button">Изменить цвет</button>
+    <button class="butn">Изменить текст</button>
+    <p class="descript">Задание 4. Поиск и изменение элементов по классу</p>
+    <p class="descript">Задача: найдите все элементы с классом 
+        description</p>
+    <p class="descript">и измените их текст на «Измененный текст».</p>
+    <p class="nodescription">Задание 5. Работа с querySelectorAll</p>
+    <p class="description">Задача: создайте несколько элементов с разными классами.</p>
+    <p class="nodescription"> Используйте querySelectorAll, чтобы найти все элементы с классом description</p>
+    <p class="description">и изменить их текст.</p>
+    <button class="insert">Добавить элемент</button>
+    <div class="content"></div>
+    <button class="delete">Удалить элемент</button>
+
+    <script>
+        const elementText = document.querySelector('.task');
+        const elementBtn = document.querySelector('.btn');
+        const subtitleEl = document.querySelector('.subtitle');
+        const buttonEl = document.querySelector('.button');
+        const headingEl = document.querySelector('.heading');
+        const butnEl = document.querySelector('.butn');
+        const allDescript = document.querySelectorAll('.descript');
+        const allDescriptions = document.querySelectorAll('.description');
+        const insertEl = document.querySelector ('.insert');
+        const contentEl = document.querySelector ('.content');
+        const deleteEl = document.querySelector ('.delete');
+        
+        
+        console.log (elementText);
+        console.log (elementBtn);
+        console.log (subtitleEl);
+        console.log (buttonEl);
+        console.log (headingEl);
+        console.log (butnEl);
+        console.log (allDescript);
+        console.log(allDescriptions);
+        console.log(insertEl);
+
+            //task1
+        elementBtn.addEventListener('click', () => {
+                elementText.classList.toggle('hidden');
+                if (elementText.classList.contains('hidden')) {
+                elementText.textContent = '';
+                } else {
+                elementText.textContent = 'Задание 1. Скрытие и показ текста';
+                }
+            })
+            
+            //task2
+        buttonEl.addEventListener('click', () => {
+                subtitleEl.style.color = 'blue';
+            })
+
+            //task3
+        butnEl.addEventListener('click', () => {
+                headingEl.textContent = 'Привет, мир!';
+            })
+
+            //task4
+        allDescript.forEach(descript => {
+                descript.textContent = 'Измененный текст';
+            })
+
+            //task5
+        allDescriptions.forEach(description => {
+                description.textContent = 'Новый текст';
+            })
+
+            //task6
+        insertEl.addEventListener('click', () => {
+                const finishingEl = document.createElement('h3');
+                finishingEl.textContent = 'Новый абзац';
+                finishingEl.classList.add ('.finishing');
+                contentEl.appendChild (finishingEl);
+            })
+
+            //task7
+        deleteEl.addEventListener('click', () => {
+                const firstElement = document.querySelector ('.description');
+                firstElement.remove ();
+            })
+    </script>
+</body>
+</html>
